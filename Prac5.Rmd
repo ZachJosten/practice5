@@ -1,0 +1,21 @@
+---
+title: "Prac5"
+author: "Zach Josten"
+date: "4/13/2022"
+output: html_document
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr)
+
+accident = read.csv("accident.csv")
+person = read.csv("person.csv")
+vehicle = read.csv("vehicle.csv")
+```
+
