@@ -12,10 +12,15 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
+library(ggplot2)
 library(dplyr)
 
 accident = read.csv("accident.csv")
 person = read.csv("person.csv")
 vehicle = read.csv("vehicle.csv")
+```
+
+```{r}
+
 ```
 
