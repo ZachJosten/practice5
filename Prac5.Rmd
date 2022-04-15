@@ -21,6 +21,15 @@ vehicle = read.csv("vehicle.csv")
 ```
 
 ```{r}
-
+dayweek = accident %>% group_by(DAY_WEEK) %>% summarise(Accidents = n())
+dayweek
+```
+```{r}
+timeofday = accident %>% group_by(HOUR) %>% summarise(Accidents = n())
+timeofday[timeofday$Accidents > 1500, ]
+```
+```{r}
+drunk = accident %>% filter(DRUNK_DR >= 1) %>% summarise(Accidents = n())
+drunk
 ```
 
