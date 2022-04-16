@@ -5,6 +5,11 @@ date: "4/13/2022"
 output: html_document
 ---
 
+Kevin Gnaster
+Zach Josten
+Cade Balvanz
+
+https://github.com/ZachJosten/practice5
 
 
 ```{r setup, include=FALSE}
@@ -31,5 +36,20 @@ timeofday[timeofday$Accidents > 1500, ]
 ```{r}
 drunk = accident %>% filter(DRUNK_DR >= 1) %>% summarise(Accidents = n())
 drunk
+```
+
+```{r}
+perType1 = person %>% filter(PER_TYP %in% c("1"))
+perType2 = full_join(perType1, accident, by = "ST_CASE")
+perType2 = perType2 %>% mutate(replace(HOUR.x, HOUR.x == "99", NA))
+
+perType2 = na.omit(perType2)
+
+dayweek2 = perType2 %>% group_by(SEX,HOUR.x, DAY_WEEK) %>% summarise(Accidents = n())
+dayweek2
+
+dayweek2 = dayweek2 %>% filter(SEX %in% c("1","2"))
+
+dayweek2 %>% ggplot(aes(x = as.factor(SEX), y = Accidents)) + geom_boxplot() + facet_wrap(~DAY_WEEK)
 ```
 
