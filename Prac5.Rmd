@@ -51,5 +51,6 @@ dayweek2
 dayweek2 = dayweek2 %>% filter(SEX %in% c("1","2"))
 
 dayweek2 %>% ggplot(aes(x = as.factor(SEX), y = Accidents)) + geom_boxplot() + facet_wrap(~DAY_WEEK)
+
 ```
 
